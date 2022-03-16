@@ -1,4 +1,6 @@
-# Welcome to Remix!
+# Remix Tailwindcss boilerplate
+
+remix v1.2.3 tailwindcss v3.0.23
 
 - [Remix Docs](https://remix.run/docs)
 
