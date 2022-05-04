@@ -1,32 +1,25 @@
+import { Link, useLoaderData, json } from "remix";
+import Countries from "~/components/Countries";
+import Navbar from "~/components/Navbar";
+
+export async function loader() {
+  const response = await fetch(
+    "https://restcountries.com/v3.1/all?fields=flags,name,population,region,capital,cca3"
+  );
+
+  const countries = json(await response.json());
+
+  return countries;
+}
+
+
 export default function Index() {
+  const countries = useLoaderData();
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <main className=" bg-slate-500 min-h-screen">
+    <Navbar/>
+    <Countries data={countries}/>
+    </main>
   );
 }
