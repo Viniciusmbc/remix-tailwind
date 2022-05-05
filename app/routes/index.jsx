@@ -1,6 +1,7 @@
 import { Link, useLoaderData, json } from "remix";
 import Countries from "~/components/Countries";
-import Navbar from "~/components/Navbar";
+import { useContext, useState } from "react";
+import { ThemeContext } from "~/components/context/ThemeContext";
 
 export async function loader() {
   const response = await fetch(
@@ -14,11 +15,11 @@ export async function loader() {
 
 
 export default function Index() {
+  const { theme } = useContext(ThemeContext);
   const countries = useLoaderData();
 
   return (
-    <main className=" bg-slate-500 min-h-screen ">
-    <Navbar/>
+    <main className={`${theme === "light" ? " bg-slate-400" : " bg-gray-800" }`}>
     <Countries data={countries}/>
     </main>
   );

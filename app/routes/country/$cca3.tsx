@@ -23,7 +23,7 @@ export default function CountryDetails() {
   return (
     <div>
       <h1>{country.name.common}</h1>
-      <img src={country.flag} alt={country.name.common} />
+      <img src={country.flags.svg} alt={country.name.common} />
       <p>
         <b>Population:</b> {country.population}
       </p>

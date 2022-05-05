@@ -6,6 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
+import ThemeContextProvider from "./components/context/ThemeContext";
+
+import Navbar from "./components/Navbar";
 
 import styles from "./styles/app.css"
 
@@ -27,10 +30,14 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <ThemeContextProvider>
+        <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        </ThemeContextProvider>
+                
       </body>
     </html>
   );
