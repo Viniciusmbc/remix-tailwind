@@ -17,7 +17,7 @@ export default function Index() {
   const countries = useLoaderData();
 
   return (
-    <main className=" bg-slate-500 min-h-screen">
+    <main className=" bg-slate-500 min-h-screen ">
     <Navbar/>
     <Countries data={countries}/>
     </main>
