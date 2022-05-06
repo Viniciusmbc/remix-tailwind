@@ -1,7 +1,8 @@
-import { Link, useLoaderData, json } from "remix";
+import { Link, useLoaderData, json, Outlet } from "remix";
 import Countries from "~/components/Countries";
 import { useContext, useState } from "react";
 import { ThemeContext } from "~/components/context/ThemeContext";
+import Navbar from "~/components/Navbar";
 
 export async function loader() {
   const response = await fetch(

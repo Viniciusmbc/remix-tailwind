@@ -21,12 +21,26 @@ export async function loader({ params }) {
 export default function CountryDetails() {
   const { country, borders } = useLoaderData();
   return (
-    <div>
-      <h1>{country.name.common}</h1>
-      <img src={country.flags.svg} alt={country.name.common} />
-      <p>
-        <b>Population:</b> {country.population}
-      </p>
-    </div>
+    <section className=" columns-2 mx-auto  max-w-screen-lg">
+      <img
+        src={country.flags.svg}
+        className="w-full"
+        alt={country.name.common}
+      />
+      <div>
+        <h1>{country.name.common}</h1>
+        <p>
+          <b>Population:</b> {country.population}
+        </p>
+        <div>
+          Borders:{" "}
+          {borders.map((border) => (
+            <div key={border.name.common}>
+              <p>{border.name.common}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
